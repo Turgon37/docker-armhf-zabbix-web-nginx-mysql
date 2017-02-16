@@ -1,0 +1,21 @@
+FROM container4armhf/armhf-alpine:3.4
+MAINTAINER Pierre GINDRAUD <pgindraud@gmail.com>
+
+ARG BUILD_TIME
+ARG ZABBIX_VERSION
+ARG ZABBIX_TYPE
+ARG ZABBIX_DB_TYPE
+ARG ZABBIX_WEBSERVER_TYPE
+
+LABEL application.zabbix.version=$ZABBIX_VERSION \
+      application.zabbix.type=$ZABBIX_TYPE \
+      application.zabbix.dbtype=$ZABBIX_DB_TYPE \
+      application.zabbix.webservertype=$ZABBIX_WEBSERVER_TYPE \
+      image.build.time=$BUILD_TIME
+
+ENV DB_SERVER_HOST=db \
+    DB_SERVER_PORT=3306 \
+    MYSQL_ALLOW_EMPTY_PASSWORD=false \
+    MYSQL_USER=zabbix \
+    MYSQL_PASSWORD=zabbix \
+    MYSQL_DATABASE=zabbix
