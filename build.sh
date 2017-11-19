@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
 
-ZABBIX_VERSION="3.2"
+ZABBIX_VERSION="${ZABBIX_VERSION:-3.4}"
 ZABBIX_URL="https://github.com/zabbix/zabbix-docker.git"
 ZABBIX_TYPE="web"
 ZABBIX_DB_TYPE="mysql"
 ZABBIX_WEBSERVER_TYPE="nginx"
 
 DOCKER_IMAGE=turgon37/armhf-zabbix-${ZABBIX_TYPE}-${ZABBIX_WEBSERVER_TYPE}-${ZABBIX_DB_TYPE}
-#BUILD_TIME=$(date --rfc-2822)
-BUILD_TIME="not set"
+BUILD_TIME=$(date --rfc-2822)
 
 echo "[[ Build ${DOCKER_IMAGE} docker image ]]"
 echo '...Downloading Official x86 project'
